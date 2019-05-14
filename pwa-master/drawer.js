@@ -8,20 +8,6 @@ var last_x = null
 var last_y = null
 var canvas = document.getElementById('stage')
 var ctx = canvas.getContext('2d')
-function onSuccess(acceleration) {
-    alert('Acceleration X: ' + acceleration.x + '\n' +
-            'Acceleration Y: ' + acceleration.y + '\n' +
-            'Acceleration Z: ' + acceleration.z + '\n' +
-            'Timestamp: '      + acceleration.timestamp + '\n');
-}
-
-function onError() {
-    alert('onError!');
-}
-
-var options = { frequency: 3000 };  // Update every 3 seconds
-
-var watchID = navigator.accelerometer.watchAcceleration(onSuccess, onError, options);
 function resize() {
 	canvas.setAttribute('width', window.innerWidth*2)
 	canvas.setAttribute('height', window.innerHeight*2)
@@ -29,7 +15,6 @@ function resize() {
 	ctx.fillText('ASIMOTO Test Page', 20, 40)
 	ctx.font = '25px serif'
 	ctx.fillText('マウスや指タッチで線が描けるよ！', 15, 80)
-	ctx.fillText(watchID)
 	ctx.lineWidth = 5
 	ctx.scale(2, 2)
 }
